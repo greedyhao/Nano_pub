@@ -24,7 +24,8 @@ EOF
 )> boot.cmd
 	fi
 else  #spi
-    echo "main spi"
+	if [ "$_KERNEL_TYPE" = main ]; then #main
+	echo "main spi"
         else	#bsp
 	echo "bspspi"
         fi
