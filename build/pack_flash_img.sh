@@ -43,8 +43,8 @@ mkdir rootfs
 echo_log "Packing rootfs..."
 tar -zxvf $_ROOTFS_FILE -C ./rootfs >/dev/null &&\
 cp -r $_MOD_FILE  rootfs/lib/modules/ &&\
-mkfs.jffs2 -s 0x100 -e 0x10000 --pad=0xAF0000 -d rootfs/ -o jffs2.img &&\
-dd if=jffs2.img of=flashimg.bin  bs=1K seek=5184  conv=notrunc &&\
+mkfs.jffs2 -s 0x100 -e 0x10000 --pad=0xAE0000 -d rootfs/ -o jffs2.img &&\
+dd if=jffs2.img of=flashimg.bin  bs=1K seek=5248  conv=notrunc &&\
 mv ./flashimg.bin $_IMG_FILE &&\
 echo_log "Bin update done!"
 cd .. &&\
